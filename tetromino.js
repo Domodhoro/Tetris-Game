@@ -57,14 +57,13 @@ const colors = [
 
 class Tetromino {
     constructor(shape, context) {
-        this.shape = shape;
+        this.shape   = shape;
         this.context = context;
-        this.x = Math.floor(columns / 2);
-        this.y = 0;
+        this.x       = Math.floor(columns / 2);
+        this.y       = 0;
     }
 
     render = function() {
-
         this.shape.map((row, i) => {
             row.map((cell, j) => {
                 if (cell != 0) {

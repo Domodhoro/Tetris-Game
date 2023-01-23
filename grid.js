@@ -1,6 +1,6 @@
 class Grid {
     constructor(rows, columns) {
-        this.rows = rows;
+        this.rows    = rows;
         this.columns = columns;
     }
 
@@ -10,9 +10,7 @@ class Grid {
         for (var i = 0; i < this.rows; i++) {
             grid.push([]);
 
-            for (var j = 0; j < this.columns; j++) {
-                grid[grid.length - 1].push(0);
-            }
+            for (var j = 0; j < this.columns; j++) grid[grid.length - 1].push(0);
         }
 
         return grid;

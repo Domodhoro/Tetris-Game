@@ -1,15 +1,16 @@
-const gameSize = 25, rows = 24, columns = 10, canvas = document.getElementById("tetrisCanvas"), scoreboard = document.getElementById("scoreboard"), context = canvas.getContext("2d");
-
-let score = 0, model = new Tetris(context);
+const gameSize   = 25;
+const rows       = 24;
+const columns    = 10;
+const canvas     = document.getElementById("tetrisCanvas");
+const scoreboard = document.getElementById("scoreboard");
+const context    = canvas.getContext("2d");
+let score        = 0;
+let model        = new Tetris(context);
 
 context.scale(gameSize, gameSize);
 
 filledLine = function(row) {
-    for (const x of row) {
-        if (x === 0) {
-            return false;
-        }
-    }
+    for (const x of row) if (x === 0) return false;
     
     return true;
 }
@@ -29,9 +30,10 @@ state = function() {
     scoreboard.innerHTML = "Score: " + String(score) + ".";
 
     if (model.fallingTetromino === null) {
-        const rand = Math.round(Math.random() * 6) + 1, newTetromino = new Tetromino(shapes[rand], context);
-
+        const rand             = Math.round(Math.random() * 6) + 1;
+        const newTetromino     = new Tetromino(shapes[rand], context);
         model.fallingTetromino = newTetromino;
+        
         model.moveDownTetromino();
     } else {
         model.moveDownTetromino();
@@ -40,5 +42,6 @@ state = function() {
 
 main = function() {
 	const step = 1000;
+
 	setInterval(() => state(), step);
 }
